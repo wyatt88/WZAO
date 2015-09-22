@@ -131,6 +131,10 @@ def getCountbyNET():
         'net1':net1
     }
     return json.dumps(d)
+@app.route('/help')
+def help():
+    return "我爱大橙子"
+    
 @app.route('/map')
 def servermap():
     return render_template('/manage/map.html')
