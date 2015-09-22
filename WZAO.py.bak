@@ -14,7 +14,7 @@ app = Flask(__name__)
 con = mysql.connect(user='root',\
 					passwd='root',\
 					db='WZAO',\
-					host='10.44.147.52')
+					host='localhost')
 con.autocommit(True)
 cur = con.cursor()
 
