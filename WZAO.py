@@ -61,7 +61,7 @@ def addserver():
 @app.route('/queryserver')
 def queryserver():
     serverid=request.args.get('serverid')
-    query_sql='select * from t_servers where sid=%s' % serverid
+    query_sql='select * from t_servers where id=%s' % serverid
     cur.execute(query_sql)
     data=cur.fetchone()
     return data[2]+','+data[5]+','+data[6]
@@ -69,7 +69,7 @@ def queryserver():
 @app.route('/deleteserver')
 def deleteserver():
     serverid=request.args.get('serverid')
-    sql='delete from t_servers where sid=%s' % serverid
+    sql='delete from t_servers where id=%s' % serverid
     cur.execute(sql)
     return 'ok'
 
