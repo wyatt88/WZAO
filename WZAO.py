@@ -11,7 +11,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 app = Flask(__name__)
-logging.basicConfig(filename="1.log",level=logging.DEBUG)
+logging.basicConfig(filename="../logs/app.log",level=logging.DEBUG)
 try:
    con = mysql.connect(user='root',\
 					passwd='root',\
