@@ -3,20 +3,27 @@ from flask import Flask,render_template,request
 import MySQLdb as mysql
 import sys
 import socket
-from WZAOSSH import WZAOSSHClient
+#from WZAOSSH import WZAOSSHClient
 import json
+import logging
 
 reload(sys)
 sys.setdefaultencoding('utf8')
 
 app = Flask(__name__)
-
-con = mysql.connect(user='root',\
+logging.basicConfig(filename="1.log",level=logging.DEBUG)
+try:
+   con = mysql.connect(user='root',\
 					passwd='root',\
 					db='WZAO',\
 					host='10.44.147.52')
-con.autocommit(True)
-cur = con.cursor()
+
+   con.autocommit(True)
+   cur = con.cursor()
+except mysql.Error,e:
+   logging.debug(e)
+finally:
+   logging.info("Connected")
 
 @app.route('/')
 def index():
@@ -73,14 +80,14 @@ def deleteserver():
     cur.execute(sql)
     return 'ok'
 
-@app.route('/sshclient')
-def sshclient():
-    ip=request.args.get('ip')
-    user=request.args.get('user')
-    passwd=request.args.get('pass')
-    command=request.args.get('cmd')
-    str_result=WZAOSSHClient.myconnect(ip,user,passwd,command)
-    return str_result
+#@app.route('/sshclient')
+#def sshclient():
+#    ip=request.args.get('ip')
+#    user=request.args.get('user')
+#    passwd=request.args.get('pass')
+#    command=request.args.get('cmd')
+#    str_result=WZAOSSHClient.myconnect(ip,user,passwd,command)
+#    return str_result
 
 @app.route('/scanport')
 def scanp():

@@ -1,0 +1,7 @@
+INFO:root:Connected
+INFO:root:Connected
+INFO:root:Connected
+INFO:root:Connected
+DEBUG:root:(1045, "Access denied for user 'root1'@'10.44.205.239' (using password: YES)")
+INFO:root:Connected
+INFO:root:Connected

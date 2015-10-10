@@ -21,6 +21,6 @@ class WZAOSSHClient:
 
 if __name__=='__main__':
     ssh1=WZAOSSHClient()
-    ssh1.myconnect('192.168.4.128','root','adccadcc','')
+#    ssh1.myconnect('192.168.4.128','root','adccadcc','')
 
 
