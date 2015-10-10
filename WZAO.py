@@ -26,8 +26,10 @@ finally:
    logging.info("Connected")
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+# def index():
+#     return render_template('index.html')
+def signin():
+    return render_template('login.html')
 
 @app.route('/servermanager')
 def servermanager():
